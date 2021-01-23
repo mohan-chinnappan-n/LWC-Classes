@@ -22,18 +22,8 @@ class Customer extends Person {
     }
 }
 
-const recordMetadata = {
-    name: 'name',
-    email: 'email',
-    website: 'url',
-    amount: 'currency',
-    phone: 'phoneNumber',
-    closeAt: 'dateInFuture',
-};
-
 
 const timeUrl = 'https://mohansun-rum.herokuapp.com/time';
-
 async function  getTime() {
     const options = { method: 'GET', 
                       headers: { 'Content-Type': 'application/json; charset=utf-8' } 
@@ -49,9 +39,8 @@ async function  getTime() {
 
 // Handler
 async function  hanldeShowResults(event) {
-    console.log('showResults');
     // create a new customer
-    let myCust = new Customer('Johny Appleseed','Nashua',  100);
+    let myCust = new Customer('Johny Appleseed','New Found Land',  100);
 
     // deposit money 
     myCust.deposit(200);
