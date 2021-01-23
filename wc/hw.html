@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello World Web Component</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body class='container'>
-
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
     <h3>Simple Web Component</h3>
 
     <style>
-        img { border-radius: 50%}
+      img {
+        border-radius: 50%;
+      }
     </style>
-    <img width='200' src='https://avatars.githubusercontent.com/u/5963194?s=460&v=4'/>
-    
-  
+    <img
+      width="200"
+      src="https://avatars.githubusercontent.com/u/5963194?s=460&v=4"
+    />
 
-  <script>
-
-    class HelloFarmingWorld extends HTMLElement {
+    <script>
+      class HelloFarmingWorld extends HTMLElement {
         constructor() {
           super();
           // Attach a shadow root to the element.
-          let shadowRoot = this.attachShadow({mode: 'open'});
+          let shadowRoot = this.attachShadow({ mode: "open" });
           shadowRoot.innerHTML = `<p>Hello Farming World!</p>
           <p>Remembering Johnny Appleseed and G. Nammalvar!</p>
 
@@ -32,29 +38,17 @@
            <hr/>
           `;
 
-         const button = document.createElement("button");
-        button.onclick = () => alert("Yes!");
-        button.innerText = "Farming Rules!";
-        shadowRoot.append(button);
-
-
+          const button = document.createElement("button");
+          button.onclick = () => alert("Yes!");
+          button.innerText = "Farming Rules!";
+          shadowRoot.append(button);
         }
-
- 
-          
-       
-
       }
-      customElements.define('hello-farming-world', HelloFarmingWorld);
-    
-  </script>  
+      customElements.define("hello-farming-world", HelloFarmingWorld);
+    </script>
 
-  <hello-farming-world>
-    <button>Farming Rules!</button>
-</hello-farming-world>
-
- 
-
-
-</body>
+    <hello-farming-world>
+      <button>Farming Rules!</button>
+    </hello-farming-world>
+  </body>
 </html>
