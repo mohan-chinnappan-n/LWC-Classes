@@ -23,8 +23,8 @@ class Customer extends Person {
 }
 
 
-const timeUrl = 'https://mohansun-rum.herokuapp.com/time';
 async function  getTime() {
+    const timeUrl = 'https://mohansun-rum.herokuapp.com/time';
     const options = { method: 'GET', 
                       headers: { 'Content-Type': 'application/json; charset=utf-8' } 
                     };
@@ -34,6 +34,33 @@ async function  getTime() {
     return timeData;
 
 }
+
+async function getFakeData() {
+    const recordMetadata = {
+        name: 'name',
+        email: 'email',
+        website: 'url',
+        amount: 'currency',
+        phone: 'phoneNumber',
+        closeAt: 'dateInFuture',
+    };
+    const amountOfRecords = 10;
+    const options = {
+         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify({
+            amountOfRecords,
+            recordMetadata,
+        })
+    };
+    const fakeDataUrl = 'https://data-faker.herokuapp.com/collection';
+    const response = await fetch(fakeDataUrl, options);
+    const fakeData = await response.json();
+    return fakeData;
+}
+
 
 
 
@@ -56,6 +83,11 @@ async function  hanldeShowResults(event) {
     console.log(timeData);
     const restDataEle = document.getElementById('restData');
     restDataEle.value = JSON.stringify(timeData, null, 4);
+
+    const fakeData = await getFakeData();
+    console.log(fakeData);
+    const fakeDataEle = document.getElementById('fakeData');
+    fakeDataEle.value = JSON.stringify(fakeData, null, 4);
     
 }
 

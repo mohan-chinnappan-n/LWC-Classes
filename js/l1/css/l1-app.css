@@ -4,7 +4,13 @@ textarea {
     font-family: Monaco, Arial, Helvetica, sans-serif;
 }
 
-#code {
+#code, #fakeData {
     background-color: black;
     color:whitesmoke;
 }
+
+#fakeData {
+    background-color: black;
+    color:whitesmoke;
+}
+
